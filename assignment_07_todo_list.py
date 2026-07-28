@@ -79,3 +79,54 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+# Task: Console-Based To-Do List Application
+
+from operator import index
+
+
+def show_menu():
+    print("\n============================")
+    print("     TO-DO LIST MENU")
+    print("============================")
+    print("1. Add task")
+    print("2. View tasks")
+    print("3. Delete task")
+    print("4. Quit")
+
+def todo_app():
+    tasks = []
+    while True:
+        show_menu()
+        choice = input("Enter your choice (1-4): ")
+        if choice == '1':
+            print("\n--- Add Task ---")
+            desc=input("Enter task: ").strip()
+            if desc:
+                tasks.append(desc)
+                print(f'Task is added: "{desc}"')
+            else:
+                print("Task description cannot be empty.")
+        elif choice == '2':
+            print("\n--- View Tasks ---")
+            if not tasks:
+                print("No tasks in the list.")
+            else:
+                for idx, task in enumerate(tasks, start=1):
+                    print(f"{index}. {task}")
+
+            try:
+                num=int(input("Enter task number to delete: "))
+                if 1 <= num <= len(tasks):
+                    removed_task=tasks.pop(num-1)
+                    print(f'Task "{removed_task}" has been removed.')
+                else:
+                    print("Error: Invalid task number.")
+
+        elif choice == '4':
+                    print("Goodbye!")
+                    break
+        else:
+            print("Error: Invalid choice. Please enter a number between 1 and 4.")
+
+    if__name_ == "__main__":
+    todo_app()
