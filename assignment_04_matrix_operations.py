@@ -60,3 +60,69 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+# Topic: Multi-dimensional Arrays (2D Lists), Nested Loops, and Functions
+
+def get_matrix():
+    rows=int(input("Enter number of rows: "))
+    cols=int(input("Enter number of columns: "))
+    matrix=[]
+    print("Enter the matrix row by row:")
+    for i in range(rows):
+        row=[]
+        for j in range(cols):
+            val=int(input(f"Enter value for row {i+1}, column {j+1}: "))
+            row.append(val)
+    matrix.append(row)
+    return matrix
+
+Part A — Transpose a Matrix
+def transpose_matrix():
+    print("--- Transpose Matrix ---")
+    matrix=get_matrix()
+
+    rows=len(matrix)
+    cols=len(matrix[0])
+
+    # Create a new matrix for the transpose
+    transpose=[]
+    for j in range(cols):
+        new_row=[]
+        for i in range(rows):
+            new_row.append(matrix[i][j])
+        transposed.append(new_row)
+
+        print("/nOriginal Matrix:")
+        for row in matrix:
+            print(row)
+
+    print("\nTransposed Matrix:")
+    for row in transposed:
+        print(row)
+
+#Part B — Add Two Matrices
+def add_matrices(): 
+    print("--- Add Two Matrices ---")
+    print("Enter first matrix:")
+    mat1=get_matrix()
+
+    print("Enter second matrix:") 
+    mat2=get_get_matrix_matching(len(mat1), len(mat1[0])) if 'get_get_matrix_matching ' else get_matrix()
+
+    rows=len(mat1)
+    cols=len(mat1[0])   
+
+    result=[]
+    for i in range(rows):
+        new_row=[]
+        for j in range(cols):
+            new_row.append(mat1[i][j]+mat2[i][j])
+        result.append(new_row)        
+
+    print("\nResultant Matrix:")
+    for row in result:
+        print(row)
+
+        if _name_=="_main_":
+            #Run the functions to demonstrate their functionality
+            transpose_matrix()
+            
