@@ -55,3 +55,35 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+#Topic: Loops and Functions
+
+#Task: Multiplication Table Generator
+
+#Part A — Single Table
+def generate_single_table(number):
+    print(f"Multiplication Table for {number}:")
+    for i in range(1, 13):
+        print(f"{number} x {i} = {number * i}")
+
+#Part B — Bonus: Tables from 1 to N
+def generate_tables_up_to_n(n):
+    n = int(input("Enter a positive integer N: "))
+
+    for i in range(1, n + 1):
+        print(f"\nMultiplication Table for {i}:")
+
+        for j in range(1, 13):
+            print(f"{i} x {j} = {i * j}")
+
+            if i < n:
+                print("---------------------------")
+
+    if __name__ == "__main__":
+        # Example usage
+        number = int(input("Enter a number for the multiplication table: "))
+        generate_single_table(number)
+
+        n = int(input("\nEnter a positive integer N for tables from 1 to N: "))
+        generate_tables_up_to_n(n)
+
+                         
