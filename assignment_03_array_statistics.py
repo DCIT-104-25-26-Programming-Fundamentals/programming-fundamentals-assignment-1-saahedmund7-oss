@@ -39,3 +39,45 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def sum(nums):
+    total = 0
+    for num in nums:
+        total += num
+    return total
+
+def average(nums):
+    total = sum(nums)
+    return total / len(nums) if nums else 0
+
+def maximum(nums):
+    max_val = nums[0] if nums else None
+    for num in nums:
+        if num > max_val:
+            max_val = num
+    return max_val
+
+def minimum(nums):
+    min_val = nums[0] if nums else None
+    for num in nums:
+        if num < min_val:
+            min_val = num
+    return min_val
+
+#main program to get user input and calculate statistics
+try:
+    n = int(input("How many numbers? "))
+    if n <= 0:
+        print("Error: Please enter a positive integer.")
+    else:
+        numbers = []
+        for i in range(n):
+            num = float(input(f"Enter number {i + 1}: "))
+            numbers.append(num)
+
+        print("\nResults:")
+        print(f"Sum:     {sum(numbers)}")
+        print(f"Average: {average(numbers)}")
+        print(f"Maximum: {maximum(numbers)}")
+        print(f"Minimum: {minimum(numbers)}")
+except ValueError:
+    print("Error detected: Please check the  numbers.")
