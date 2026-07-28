@@ -33,7 +33,7 @@
 
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
- =============================================================================
+#=============================================================================
 
 def check_prime(num):
     #Checking if a number given as 1 ansd anything lower than 2 is not prime
