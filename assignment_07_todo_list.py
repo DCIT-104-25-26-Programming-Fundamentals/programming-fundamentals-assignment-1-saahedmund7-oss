@@ -111,17 +111,24 @@ def todo_app():
             if not tasks:
                 print("No tasks in the list.")
             else:
+                for idx, task in enumerate(tasks, start
+                    print(f"{idx}. {task}")
+        elif choice == '3':
+            print("\n--- Delete Task ---")
+            if not tasks:
+                print("No tasks to delete.")
+            else:
                 for idx, task in enumerate(tasks, start=1):
-                    print(f"{index}. {task}")
-
-            try:
-                num=int(input("Enter task number to delete: "))
-                if 1 <= num <= len(tasks):
-                    removed_task=tasks.pop(num-1)
-                    print(f'Task "{removed_task}" has been removed.')
-                else:
-                    print("Error: Invalid task number.")
-
+                    print(f"{idx}. {task}")
+                try:
+                    num=int(input("Enter task number to delete: "))
+                    if 1 <= num <= len(tasks):
+                        removed_task=tasks.pop(num-1)
+                        print(f'Task "{removed_task}" has been removed.')
+                    else:
+                        print("Error: Invalid task number.")
+                except ValueError:
+                    print("Error: Please enter a valid number.")
         elif choice == '4':
                     print("Goodbye!")
                     break
