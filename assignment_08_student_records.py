@@ -90,3 +90,79 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+# Topic: Student Record Management System
+
+def show_menu():
+    print("\n===============================")
+    print("   STUDENT RECORD SYSTEM MENU")
+    print("===============================")
+    print("1. Add student")
+    print("2. Display all students")
+    print("3. Calculate average score")
+    print("4. Quit")
+
+def student_records_app():
+    students = []
+    while True:
+        show_menu()
+        choice = input("Enter your choice (1-4): ")
+        if choice == '1':
+            print("\n--- Add Student ---")
+            name = input("Student name: ").strip()
+            student_id = input("Student ID: ").strip()
+
+            try:
+                num_scores = int(input("How many scores? "))
+                if num_scores <= 0:
+                    print("Error: Number of scores must be a positive integer.")
+                    continue
+                scores = []
+                for i in range(num_scores):
+                    score = float(input(f"Enter score {i + 1}: "))
+                    scores.append(score)
+
+                student_record = {
+                    "name": name,
+                    "id": student_id,
+                    "scores": scores
+                }
+                students.append(student_record)
+                print(f'Student "{name}" added successfully.')
+            except ValueError:
+                print("Error: Please enter a valid number of scores.")
+                continue
+        elif choice == '2':
+            print("\n--- Display All Students ---")
+            if not students:
+                print("No students in the record.")
+            else:
+                print("--------------------------------------------------")
+                print("Name           ID          Scores         Average")
+                print("--------------------------------------------------")
+                for student in students:
+                    avg_score = sum(student["scores"]) / len(student["scores"])
+                    print(f"{student['name']:<14} {student['id']:<12} {', '.join(map(str, student['scores'])):<14} {avg_score:.2f}")
+                print("--------------------------------------------------")
+        elif choice == '3':
+            print("\n--- Calculate Average Score ---")
+            if not students:
+                print("No students in the record.")
+            else:
+                target_id = input("Enter student ID: ").strip()
+                found = False
+                for s in students:
+                    if s["id"] == target_id:
+                        avg_score = sum(s["scores"]) / len(s["scores"])
+                        print(f"{s['name']}'s average score: {avg_score:.2f}")
+                        found = True
+                        break
+                if not found:
+                    print("Student not found.")
+        elif choice == '4':
+            print("Goodbye!")
+            break
+        else:
+            print("Error: Invalid choice. Please enter a number between 1 and 4.")
+
+if __name__ == "__main__":
+    student_records_app()   
